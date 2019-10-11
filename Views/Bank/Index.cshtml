@@ -1,0 +1,37 @@
+﻿
+@model IEnumerable<MyBankingApp.Models.ApprovedBanks>
+@using System.Globalization;
+@{
+    ViewBag.Title = "Approved Banks";
+}
+<h2>@ViewBag.Title</h2>
+<h3>@ViewBag.Message</h3>
+
+
+
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col"></th>
+            <th scope="col">Rating</th>
+            <th scope="col">Assets</th>
+            <th scope="col">Limit</th>
+            <th scope="col">Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var bank in Model)
+        {
+            <tr>
+                <th scope="row">@bank.Name</th>
+                <td>@bank.Rating</td>
+                <td>@bank.Asset.ToString("C", CultureInfo.CurrentCulture)</td>
+                <td>@bank.Limit.ToString("C", CultureInfo.CurrentCulture)</td>
+                <td>@bank.Date</td>
+            </tr>
+        }
+
+
+
+    </tbody>
+</table>
